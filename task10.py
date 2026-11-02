@@ -1,0 +1,4 @@
+v=float(input("Venue: ")); e=float(input("Equipment: ")); c=float(input("Catering/person: ")); t=float(input("Transport/person: ")); cert=float(input("Certificate/person: "))
+p=int(input("Participants: ")); fee=float(input("Registration fee: ")); s=float(input("Sponsorship: ")); fixed=v+e; var=c+t+cert; total=fixed+var*p; income=fee*p+s; print("Cost",total,"Income",income,"Gap",total-income)
+print("Invalid input") if min(v,e,c,t,cert,fee,s)<0 or p<0 else print("Break-even impossible") if fee<=var else print("Minimum registrations",max(0,int((fixed-s)/(fee-var))+(1 if (fixed-s)/(fee-var)>int((fixed-s)/(fee-var)) else 0)))
+# Break-even uses the ceiling of fixed cost after sponsorship divided by net contribution
